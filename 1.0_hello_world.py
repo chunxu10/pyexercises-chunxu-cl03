@@ -25,7 +25,7 @@ DELIVERABLE
 # 1. In:my name is string
 # 2. Process:the program repeats the print 5 times
 # 3. Out:five statements numbered
-# 4. My message, and why:learning how t0 print in python
+# 4. My message, and why:learning how to print in python
 
 
 # Your code below
