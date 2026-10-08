@@ -22,13 +22,14 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:my name is string
-# 2. Process:the program repeats the print 5 times
+# 1. In:the message "chunxu" 
+# 2. Process:repeats the message five times and number each line
 # 3. Out:five statements numbered
-# 4. My message, and why:learning how to print in python
+# 4. My message, and why:my name is chunxu,learning how to print in python
 
 
 # Your code below
+
 print("1. chunxu")
 print("2. chunxu")
 print("3. chunxu")
@@ -36,7 +37,14 @@ print("4. chunxu")
 print("5. chunxu")
 
 
-print("printing with for loop")
+# range(1,count+1): generates integers from 1 to 5. 
+# range includes the start value but excludes the end value, 
+# so the end value must be 6, which is count +1
 
-for number in range(1,6):
-    print(number,"chunxu")
+# i--> number, 
+for i in range(1,6):
+    print(i,"chunxu")
+
+# 3 times
+for i in range(1,4):
+    print(i,"chunxu")
