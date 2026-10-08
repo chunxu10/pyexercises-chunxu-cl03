@@ -24,15 +24,16 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out:
+# 1. In: Two numbers entered by the user
+# 2. Process: Calculate the +,-,*,/
+# 3. Out: The results
 # 4. What happens when the second number is zero, and why:
+# Display a message instead of the division result, because division by zero is undefined.
 
 
 # Your code below
 number_1 = input("enter the first number:")
-number_2 = input("enter the second number")
+number_2 = input("enter the second number:")
 
 #adding the two numbers
 sum = number_1 + number_2
@@ -41,7 +42,7 @@ print("the sum of two number is:", sum)
 
 # Your code below 2
 number_1 = float(input("enter the first number:"))
-number_2 = float(input("enter the second number"))
+number_2 = float(input("enter the second number:"))
 #adding the two numbers
 sum = number_1 + number_2
 
