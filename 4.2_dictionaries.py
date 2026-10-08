@@ -23,10 +23,56 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
+# 1. In: A dictionary describing a hotel booking with five fields
 # 2. Process:
-# 3. Out:
+# read a value, update a value, remove a field,
+# handle a missing field, and display all remaining fields
+# 3. Out: The guest's name, a missing-field message,
+# and all fields and values in the updated booking
 # 4. My object, my five fields, and why those:
-
+# guest_name identifies the guest.
+# room_number identifies the booked room.
+# nights records the length of the stay.
+# price_per_night records the nightly room price in euros.
+# special_request records a guest preference for staff to consider.
 
 # Your code below
+# Create a sample hotel booking with five useful fields.
+booking = {
+    "guest_name": "chunxu",
+    "room_number": 203,
+    "nights": 3,
+    "price_per_night": 90.0,
+    "special_request": "Quiet room"
+}
+
+# Read and display the guest's name.
+print("Guest name:", booking["guest_name"])
+
+# Update the booking from three nights to four nights.
+booking["nights"] = 4
+
+# Remove the special request after the guest withdraws it.
+del booking["special_request"]
+
+# Try to read a missing field and handle the error without stopping.
+try:
+    print("Email:", booking["email"])
+
+# File "/workspaces/pyexercises/4.2_dictionaries.py", line 60
+#    print("Email:", booking["email"])
+#SyntaxError: expected 'except' or 'finally' block
+
+except KeyError:
+    print("The booking has no email field.")
+
+# Display every remaining field and its value.
+for field, value in booking.items():
+    print(field, ":", value)
+
+#Guest name: chunxu
+#The booking has no email field.
+#guest_name : chunxu
+#room_number : 203
+#nights : 4
+#price_per_night : 90.0
