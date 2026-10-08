@@ -26,17 +26,19 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:user's name and age
-# 2. Process:concatenate two information that i got from the user
-# 3. Out:the concatenated string
-# 4. My two fields, and what I would do with them:
+# 1. In: the guest's name, the number of nights
+# 2. Process:concatenate two information that i got from the guest
+# 3. Out: A sentence showing the guest's name and the number of nights booked
+# 4. My two fields, and what I would do with them: Guest's name and number of nights, to record a hotel booking
 
 
 # Your code below
 name = input("enter your name:")
-age = input("enter your age:")
+nights = input("how many nights will you stay?:")
 
-print("the user's name is:", name)
-print("the user's age is:", age)
-
-print("the user name is, " + name + " and the user's age is ", age)
+print("the guest:", name)
+print("booked a stay for", nights,"nights")
+# The + operator joins strings together without adding spaces automatically
+print("the guest " + name + " booked a stay for "+ nights + " nights")
+# , adds a space between them by default.
+print("the guest",name, "booked a stay for",nights,"nights")
