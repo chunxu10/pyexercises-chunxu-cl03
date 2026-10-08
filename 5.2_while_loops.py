@@ -28,10 +28,49 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out:
+# 1. In: the user's answers to a hotel booking confirmation question
+# 2. Process: Ask repeatedly, remove surrounding whitespace,
+# convert the answer to lowercase, and count the attempts
+# 3. Out: A summary showing the number of attempts
+# and whether the booking was confirmed
 # 4. My stop condition, my attempt limit, my summary:
-
+# Stop when the user enters "yes" or after 3 attempts
+# If the limit is reached without "yes", leave the booking unconfirmed
+# Accept "Yes", "YES", and " yes " as the same answer
+# Any other answer counts as an unsuccessful attempt
 
 # Your code below
+# Set the attempt limit and the initial confirmation status.
+max_attempts = 3
+attempts = 0
+confirmed = False
+
+# Keep asking while attempts remain and the booking is not confirmed.
+while attempts < max_attempts and not confirmed:
+    answer = input("Do you confirm your hotel booking? Enter yes: ")
+    attempts += 1
+
+    # Ignore surrounding whitespace and differences in letter case.
+    answer = answer.strip().lower()
+
+    # Stop asking once the user confirms.
+    if answer == "yes":
+        confirmed = True
+
+# After the loop, display the attempt count and final status.
+print("Attempts used:", attempts)
+
+if confirmed:
+    print("Booking confirmed.")
+else:
+    print("Attempt limit reached. Booking not confirmed.")
+
+
+#Do you confirm your hotel booking? Enter yes: no
+#Do you confirm your hotel booking? Enter yes: no
+#Do you confirm your hotel booking? Enter yes: no
+#Attempts used: 3
+
+#Do you confirm your hotel booking? Enter yes:   Yes
+#Attempts used: 1
+#Booking confirmed.

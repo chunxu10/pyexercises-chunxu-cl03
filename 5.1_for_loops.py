@@ -24,10 +24,36 @@ DELIVERABLE
     This file, with your comments and your code.
 """
 
-# 1. In:
-# 2. Process:
-# 3. Out:
-# 4. What I compute for each item, and why it is worth showing:
+# 1. In: The booking nights list from exercise 4.0
+# and a sample nightly price of 90 euros
+# 2. Process: 
+# Loop through the list, number each booking,
+# and multiply its nights by the nightly price.
+# 3. Out: One line per booking showing its position,
+# number of nights, and total accommodation cost in euros
+# 4. What I compute for each item, and why it is worth showing: 
+# I calculate the accommodation cost for each booking.
+# This lets the reader see how much each stay costs
+# at the assumed fixed nightly price.
 
 
 # Your code below
+# Copy my booking nights list from exercise 4.0.
+booking_nights = [1, 7, 8, 6, 2, 3, 4, 5]
+
+# Use a sample fixed price of 90 euros per night.
+price_per_night = 90
+
+# Number each booking from 1 and calculate its accommodation cost.
+for position, nights in enumerate(booking_nights, start=1):
+    total_cost = nights * price_per_night
+    print("Booking", position, "-", nights, "nights -", total_cost, "EUR")
+
+#Booking 1 - 1 nights - 90 EUR
+#Booking 2 - 7 nights - 630 EUR
+#Booking 3 - 8 nights - 720 EUR
+#Booking 4 - 6 nights - 540 EUR
+#Booking 5 - 2 nights - 180 EUR
+#Booking 6 - 3 nights - 270 EUR
+#Booking 7 - 4 nights - 360 EUR
+#Booking 8 - 5 nights - 450 EUR
