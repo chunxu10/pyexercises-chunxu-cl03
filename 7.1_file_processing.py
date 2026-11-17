@@ -45,7 +45,7 @@ DELIVERABLE
 # 1. In: names.txt, containing 10 lines, including two empty lines.
 # 2. Process, problem by problem:
 # - Skip empty lines.
-# - Use split() and join() to remove extra spaces.
+# - Use strip() and split() to remove extra spaces.
 # - Capitalise names consistently, keeping "van" lowercase.
 # - Keep all words after the first name together as the surname.
 # - Sort by the complete surname, ignoring case.
