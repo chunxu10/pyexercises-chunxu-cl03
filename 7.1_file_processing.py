@@ -37,15 +37,82 @@ DELIVERABLE
 """
 
 # What is wrong with names.txt (found by reading it, not by guessing):
-# -
-# -
-# -
-# -
+# - there are two empty lines, at lines 3 and 9.
+# - Some names have extra spaces at the beginning.
+# - Capitalisation is inconsistent, for example "ada LOVELACE".
+# - "GUIDO van rossum" has a two-word surname, which must stay together.
 
-# 1. In:
+# 1. In: names.txt, containing 10 lines, including two empty lines.
 # 2. Process, problem by problem:
+# - Skip empty lines.
+# - Use split() and join() to remove extra spaces.
+# - Capitalise names consistently, keeping "van" lowercase.
+# - Keep all words after the first name together as the surname.
+# - Sort by the complete surname, ignoring case.
+# - Write the cleaned names to a new file.
 # 3. Out:
+# names_sorted.txt, containing eight cleaned names, one per line.
+# The original names.txt is not modified.
 # 4. How I decide which word is the last name:
+# For this file, I assume names are written in first-name-first order.
+# When there are two words, the second word is the surname.
+# For "GUIDO van rossum", the complete surname is "van Rossum".
+# I include "van" when sorting, so this surname is sorted under V.
+# This convention is suitable for this file, but not necessarily all names.
 
 
 # Your code below
+INPUT_FILE = "names.txt"
+OUTPUT_FILE = "names_sorted.txt"
+PARTICLES = ["van", "von", "de", "der", "da"]
+
+
+def tidy_word(word):
+    word = word.lower()
+    if word in PARTICLES:
+        return word
+    return word.capitalize()
+
+
+def split_name(line):
+    words = line.split()
+    first_name = tidy_word(words[0])
+    last_words = []
+    for word in words[1:]:
+        last_words.append(tidy_word(word))
+    last_name = " ".join(last_words)
+    return [first_name, last_name]
+
+
+# Read the original file (read mode only, so it is not modified)
+with open(INPUT_FILE, "r") as infile:
+    lines = infile.readlines()
+
+# Clean every line
+people = []
+for line in lines:
+    line = line.strip()
+    if line == "":
+        continue
+    people.append(split_name(line))
+
+# Sort by last name, ignoring upper/lower case
+people.sort(key=lambda person: person[1].lower())
+
+# Write the result to a new file
+with open(OUTPUT_FILE, "w") as outfile:
+    for person in people:
+        outfile.write(person[0] + " " + person[1] + "\n")
+
+print("Read", len(lines), "lines from", INPUT_FILE)
+print("Wrote", len(people), "names to", OUTPUT_FILE)
+
+# Check:
+# - names.txt has 10 lines; names_sorted.txt has 8 lines.
+#   The difference is 2 because the two empty lines (line 3 and line 9) were removed.
+#   No real name was lost: I counted 8 people in names.txt by hand.
+# - First name of the sorted list: Margaret Hamilton ("Hamilton" is the earliest
+#   last name alphabetically: H-a comes before H-o of Hopper).
+# - Last name of the sorted list: Guido van Rossum ("van Rossum" starts with V,
+#   later than T of Torvalds and Turing).
+# - names.txt is unchanged after running the program.
